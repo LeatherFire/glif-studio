@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0c0c10" />
+    <title>Glif Studio · ASCII Playground</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23191721'/%3E%3Cpath d='m20 5 14 8-14 8-14-8zm-14 14 14 8 14-8m-28 7 14 8 14-8' fill='none' stroke='%23c4a3ff' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="src/studio.css" />
+  </head>
+  <body>
+    <svg
+      width="0"
+      height="0"
+      aria-hidden="true"
+      style="position: absolute; overflow: hidden"
+    >
+      <defs>
+        <symbol id="ic-hand" viewBox="0 0 24 24">
+          <path
+            d="M8 13V6a1.4 1.4 0 0 1 2.8 0v4-6a1.4 1.4 0 0 1 2.8 0v6-4a1.4 1.4 0 0 1 2.8 0v5-3a1.4 1.4 0 0 1 2.8 0v6c0 4-2.1 6.4-6.1 6.4h-1.5c-1.9 0-3.4-1.2-4.8-3l-3.2-4.1a1.4 1.4 0 0 1 2.1-1.8L8 13Z"
+          />
+        </symbol>
+        <symbol id="ic-launch" viewBox="0 0 24 24">
+          <path d="m4 4 16.6 7.9-16.6 8.2 2.9-6.9L14 12l-7.1-1.2Z" />
+        </symbol>
+        <symbol id="ic-keyboard" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2.5" />
+          <path
+            d="M6 9h.1m3.9 0h.1m3.9 0h.1m3.9 0h.1M6 12h.1m3.9 0h.1m3.9 0h.1m3.9 0h.1M8 15h8"
+          />
+        </symbol>
+        <symbol id="ic-download" viewBox="0 0 24 24">
+          <path
+            d="M12 3v12m-4.5-4.5L12 15l4.5-4.5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"
+          />
+        </symbol>
+        <symbol id="ic-cube" viewBox="0 0 24 24">
+          <path d="m12 2 9 5v10l-9 5-9-5V7Z" />
+          <path d="m3 7 9 5 9-5m-9 5v10M7.6 4.5l9 5" />
+        </symbol>
+        <symbol id="ic-terminal" viewBox="0 0 24 24">
+          <rect x="2" y="4" width="20" height="16" rx="2.5" />
+          <path d="m6 9 3 3-3 3m6 0h4" />
+        </symbol>
+        <symbol id="ic-signal" viewBox="0 0 24 24">
+          <path d="M4 18v-2m5 2v-6m5 6V8m5 10V4" stroke-width="2.2" />
+        </symbol>
+        <symbol id="ic-grid" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M9 3v18m6-18v18M3 9h18M3 15h18" />
+        </symbol>
+        <symbol id="ic-maximize" viewBox="0 0 24 24">
+          <path d="M3.5 9V3.5H9m6 0h5.5V9m0 6v5.5H15m-6 0H3.5V15" />
+        </symbol>
+        <symbol id="ic-orbit" viewBox="0 0 24 24">
+          <ellipse
+            cx="12"
+            cy="12"
+            rx="10"
+            ry="4"
+            transform="rotate(-28 12 12)"
+          />
+          <path
+            d="M6.2 11.5c-.7-4.4.5-7.7 2.4-8.5 2.8-1.1 6.1 2.6 8.2 7.8 2.1 5.3 1.7 9.1-.7 10.1-1.6.6-4.2-1.3-6-3.5"
+          />
+        </symbol>
+        <symbol id="ic-minus" viewBox="0 0 24 24"><path d="M5 12h14" /></symbol>
+        <symbol id="ic-plus" viewBox="0 0 24 24">
+          <path d="M5 12h14m-7-7v14" />
+        </symbol>
+        <symbol id="ic-focus" viewBox="0 0 24 24">
+          <path d="M3.5 8V3.5H8m8 0h4.5V8m0 8v4.5H16m-8 0H3.5V16" />
+          <circle cx="12" cy="12" r="3" />
+        </symbol>
+        <symbol id="ic-sliders" viewBox="0 0 24 24">
+          <path d="M3 7h5m4 0h9M3 17h10m4 0h4" />
+          <circle cx="10" cy="7" r="2.1" />
+          <circle cx="15" cy="17" r="2.1" />
+        </symbol>
+        <symbol id="ic-reset" viewBox="0 0 24 24">
+          <path d="M3.4 10a8.5 8.5 0 1 1 1.4 7.4M3.5 4.5v5.8h5.8" />
+        </symbol>
+        <symbol id="ic-check" viewBox="0 0 24 24">
+          <path d="m4.5 12.4 4.6 4.5 10.5-10.5" />
+        </symbol>
+        <symbol id="ic-chevron" viewBox="0 0 24 24">
+          <path d="m6 9 6 6 6-6" />
+        </symbol>
+        <symbol id="ic-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M6 18 18 6" />
+        </symbol>
+        <symbol id="ic-library" viewBox="0 0 24 24">
+          <path
+            d="m12 2.5 9.5 5.3-9.5 5.4-9.5-5.4Zm-9 10.1 9 5.1 9-5.1m-18 5 9 5 9-5"
+          />
+        </symbol>
+        <symbol id="ic-copy" viewBox="0 0 24 24">
+          <rect x="8" y="8" width="12" height="13" rx="2" />
+          <path
+            d="M15 8V4a1.5 1.5 0 0 0-1.5-1.5h-9A1.5 1.5 0 0 0 3 4v10a1.5 1.5 0 0 0 1.5 1.5H8"
+          />
+        </symbol>
+        <symbol id="ic-image" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+          <circle cx="8" cy="8" r="1.2" />
+          <path d="m3.5 17 4.5-4.5 3.5 3.5 4.5-6 5 6" />
+        </symbol>
+        <symbol id="ic-txt" viewBox="0 0 24 24">
+          <path d="M5 3h10l4 4v14H5zM15 3v5h4M8 12h8m-8 4h6" />
+        </symbol>
+      </defs>
+    </svg>
+    <header class="topbar">
+      <div class="shell top-inner">
+        <div class="identity" aria-label="Glif Studio">
+          <svg
+            aria-hidden="true"
+            class="brand-mark"
+            width="38"
+            height="38"
+            viewBox="0 0 40 40"
+            fill="none"
+          >
+            <path d="m20 3 15 8.4L20 20 5 11.4Z" fill="#d1b7ff" />
+            <path
+              d="m5 16.2 15 8.6 15-8.6v5.3l-15 8.6-15-8.6Z"
+              fill="#a482e1"
+            />
+            <path d="m5 26.1 15 8.6 15-8.6v3L20 38 5 29.1Z" fill="#74599d" />
+            <path d="m20 7.7 6.3 3.7-6.3 3.7-6.3-3.7Z" fill="#3c2d52" />
+          </svg>
+          <span class="brand-name"
+            >Glif<span class="brand-second">Studio</span></span
+          >
+        </div>
+        <div class="head-actions">
+          <button class="quiet-btn shortcuts" id="shortcutsBtn" type="button">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <use href="#ic-keyboard" /></svg
+            ><span>Kısayollar</span>
+          </button>
+          <span class="divider head-divider"></span>
+          <button class="primary" id="exportBtn" type="button">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <use href="#ic-download" /></svg
+            >Dışa aktar
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="shell">
+      <div class="intro">
+        <div>
+          <h1>ASCII Playground</h1>
+          <p>Bir kuleyi devir. Çarpışma anını geri sarıp her açıdan incele.</p>
+        </div>
+        <span class="local-label"
+          ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <use href="#ic-terminal" /></svg
+          >Yerel çalışma alanı</span
+        >
+      </div>
+      <div class="workspace">
+        <section
+          class="viewport panel"
+          id="viewport"
+          aria-label="Etkileşimli 3B fizik sahnesi"
+        >
+          <div class="panel-head scene-head">
+            <h2>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-cube" /></svg
+              >Fizik sahnesi
+            </h2>
+            <div class="head-tools">
+              <button
+                type="button"
+                class="launch-btn"
+                id="launchCube"
+                title="Sahneye küp fırlat"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="#ic-launch" /></svg
+                >Küp fırlat</button
+              ><span class="divider"></span
+              ><span class="live" id="liveBadge"
+                ><b></b><span id="liveState">Canlı</span></span
+              ><span class="divider"></span
+              ><span class="fps"
+                ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="#ic-signal" /></svg
+                ><span id="fps">—</span> FPS</span
+              >
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-dots"></div>
+            <canvas
+              id="scene"
+              tabindex="0"
+              aria-label="Fizik sahnesi. Bir cismi sürükleyip bırakarak fırlat. Ok tuşlarıyla kamerayı döndür, Enter ile bir küp fırlat."
+            ></canvas>
+            <div class="object-label">
+              <span class="object-symbol" aria-hidden="true">⌘</span>
+              <div>
+                <h3 id="meshTitle">Küp kuleleri</h3>
+                <span class="scene-counts"
+                  ><span><b id="bodyCount">0</b> cisim</span
+                  ><span class="dot-sep">·</span
+                  ><span><b id="breakCount">0</b> kırılma</span></span
+                >
+              </div>
+            </div>
+            <div class="stage-actions">
+              <button
+                class="icon-btn"
+                id="gridToggle"
+                aria-label="Izgarayı göster veya gizle"
+                title="Izgara (G)"
+                aria-pressed="true"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="#ic-grid" />
+                </svg></button
+              ><button
+                class="icon-btn"
+                id="fullscreen"
+                aria-label="Tam ekran"
+                title="Tam ekran (F)"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="#ic-maximize" />
+                </svg>
+              </button>
+            </div>
+            <svg
+              class="axis"
+              id="axis"
+              viewBox="-28 -28 56 56"
+              aria-hidden="true"
+            >
+              <g stroke-linecap="round" stroke-width="1.35">
+                <line
+                  data-axis-line="x"
+                  x1="0"
+                  y1="0"
+                  x2="16"
+                  y2="7"
+                  stroke="#d58b96"
+                />
+                <line
+                  data-axis-line="y"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="-17"
+                  stroke="#93c5a9"
+                />
+                <line
+                  data-axis-line="z"
+                  x1="0"
+                  y1="0"
+                  x2="-15"
+                  y2="8"
+                  stroke="#ad9bcf"
+                />
+              </g>
+              <g text-anchor="middle" dominant-baseline="central">
+                <text data-axis-label="x" x="22" y="10" fill="#e8a8b4">X</text>
+                <text data-axis-label="y" x="0" y="-23" fill="#a9d4b8">Y</text>
+                <text data-axis-label="z" x="-22" y="11" fill="#c7b6e7">Z</text>
+              </g>
+              <circle cx="0" cy="0" r="2" fill="#beb5ca" />
+            </svg>
+            <span class="resolution" title="Yatay ve dikey karakter sayısı"
+              ><span class="resolution-cross">⌗</span>
+              <span id="gridSize">— × —</span></span
+            >
+          </div>
+          <section class="replay-deck" aria-label="Çarpışma kaydı">
+            <div class="replay-head">
+              <h3>Çarpışma kaydı</h3>
+              <span id="recordLength">0,0 sn</span
+              ><button
+                type="button"
+                id="watch"
+                title="Son sekiz saniyelik hareketi izle"
+              >
+                Tekrarı izle</button
+              ><button type="button" id="backLive" hidden>Canlıya dön</button>
+            </div>
+            <div class="scrubber">
+              <div id="impacts" aria-hidden="true"></div>
+              <input
+                id="seek"
+                type="range"
+                min="0"
+                max="0"
+                step="1"
+                value="0"
+                aria-label="Kayıtta zaman"
+              />
+            </div>
+            <div class="replay-meta">
+              <span><i></i>Kırılma anları</span
+              ><label
+                >İzleme hızı
+                <select id="rate">
+                  <option value=".25">0,25×</option>
+                  <option value=".5" selected>0,5×</option>
+                  <option value="1">1×</option>
+                </select></label
+              >
+            </div>
+          </section>
+          <div class="scene-foot">
+            <button
+              class="play-btn"
+              id="togglePlay"
+              type="button"
+              aria-label="Animasyonu duraklat"
+              title="Oynat / duraklat (Boşluk)"
+              aria-pressed="true"
+            >
+              <svg class="pause-icon" viewBox="0 0 20 20" fill="currentColor">
+                <rect x="5" y="4" width="3.3" height="12" rx=".8" />
+                <rect x="11.7" y="4" width="3.3" height="12" rx=".8" /></svg
+              ><svg class="play-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M6 3.3v13.4L16 10z" />
+              </svg>
+            </button>
+            <button
+              class="plain-icon"
+              id="resetScene"
+              title="Sahneyi yeniden kur (R)"
+              aria-label="Sahneyi yeniden kur"
+            >
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-reset" />
+              </svg></button
+            ><span class="divider transport-divider"></span
+            ><button class="add-cube" id="addCube" title="Küp ekle (A)">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-plus" /></svg
+              >Küp ekle</button
+            ><span class="interaction"
+              ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-hand" /></svg
+              ><span id="interactionHint">Küpü tut ve fırlat</span></span
+            >
+            <span class="foot-spacer"></span>
+            <div class="zoom-group">
+              <button
+                id="zoomOut"
+                title="Uzaklaştır (−)"
+                aria-label="Uzaklaştır"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="#ic-minus" />
+                </svg></button
+              ><output id="zoomValue">100%</output
+              ><button
+                id="zoomIn"
+                title="Yakınlaştır (+)"
+                aria-label="Yakınlaştır"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="#ic-plus" />
+                </svg>
+              </button>
+            </div>
+            <span class="divider"></span
+            ><button
+              class="plain-icon"
+              id="viewReset"
+              type="button"
+              title="Kamerayı sıfırla (R)"
+              aria-label="Kamerayı sıfırla"
+            >
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-focus" />
+              </svg>
+            </button>
+          </div>
+        </section>
+        <aside class="panel inspector" aria-label="Simülasyon ayarları">
+          <div class="panel-head">
+            <h2>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-sliders" /></svg
+              >Simülasyon ayarları
+            </h2>
+            <button
+              type="button"
+              class="plain-icon"
+              id="resetSettings"
+              title="Ayarları sıfırla"
+              aria-label="Ayarları sıfırla"
+            >
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-reset" />
+              </svg>
+            </button>
+          </div>
+          <div class="inspector-content">
+            <div class="physics-params">
+              <div class="material-picker">
+                <h3>Yeni küpün malzemesi</h3>
+                <div class="material-options">
+                  <button data-material="clay" aria-pressed="true">Kil</button
+                  ><button data-material="glass" aria-pressed="false">
+                    Cam</button
+                  ><button data-material="rubber" aria-pressed="false">
+                    Kauçuk
+                  </button>
+                </div>
+                <small id="materialHelp"
+                  >Orta yoğunlukta, sert darbede kırılır.</small
+                >
+              </div>
+              <div class="range-group">
+                <div class="setting-label">
+                  <label for="gravity">Yerçekimi</label
+                  ><output id="gravityValue" for="gravity">1,00 g</output>
+                </div>
+                <input
+                  type="range"
+                  id="gravity"
+                  min="0"
+                  max="100"
+                  value="50"
+                  style="--fill: 50%"
+                />
+              </div>
+              <div class="range-group">
+                <div class="setting-label">
+                  <label for="restitution">Sekme</label
+                  ><output id="restitutionValue" for="restitution">%30</output>
+                </div>
+                <input
+                  type="range"
+                  id="restitution"
+                  min="0"
+                  max="100"
+                  value="30"
+                  style="--fill: 30%"
+                />
+              </div>
+              <label class="fracture-row"
+                ><span
+                  ><b>Kırılabilir cisimler</b
+                  ><small>Sert darbelerde parçalanır</small></span
+                ><input
+                  type="checkbox"
+                  id="breakable"
+                  role="switch"
+                  checked /><span class="switch" aria-hidden="true"></span
+              ></label>
+            </div>
+            <div class="appearance">
+              <section class="settings-section colors">
+                <div class="setting-label">
+                  <h3>Renk paleti</h3>
+                  <output id="paletteName">Aurora</output>
+                </div>
+                <div class="swatches" role="group" aria-label="Renk paleti">
+                  <button
+                    type="button"
+                    class="swatch selected aurora"
+                    data-palette="aurora"
+                    aria-pressed="true"
+                    aria-label="Aurora"
+                    title="Aurora"
+                  >
+                    <span
+                      ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <use href="#ic-check" /></svg
+                    ></span>
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch buz"
+                    data-palette="buz"
+                    aria-pressed="false"
+                    aria-label="Buz"
+                    title="Buz"
+                  >
+                    <span
+                      ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <use href="#ic-check" /></svg
+                    ></span>
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch fosfor"
+                    data-palette="fosfor"
+                    aria-pressed="false"
+                    aria-label="Fosfor"
+                    title="Fosfor"
+                  >
+                    <span
+                      ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <use href="#ic-check" /></svg
+                    ></span>
+                  </button>
+                  <button
+                    type="button"
+                    class="swatch mono"
+                    data-palette="mono"
+                    aria-pressed="false"
+                    aria-label="Monokrom"
+                    title="Monokrom"
+                  >
+                    <span
+                      ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <use href="#ic-check" /></svg
+                    ></span>
+                  </button>
+                </div>
+              </section>
+              <div class="range-group">
+                <div class="setting-label">
+                  <label for="density">Karakter yoğunluğu</label
+                  ><output id="densityValue" for="density">%62</output>
+                </div>
+                <input
+                  type="range"
+                  id="density"
+                  min="0"
+                  max="100"
+                  value="62"
+                  style="--fill: 62%"
+                />
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <section class="library" aria-labelledby="libraryTitle">
+        <div class="library-heading">
+          <h2 id="libraryTitle">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <use href="#ic-library" /></svg
+            >Sahne kütüphanesi
+          </h2>
+          <span>4 düzenek</span>
+        </div>
+        <div class="tiles" role="group" aria-label="Fizik düzeneği seçimi">
+          <button
+            class="tile selected"
+            type="button"
+            data-mesh="kule"
+            aria-pressed="true"
+            aria-label="Küp kuleleri"
+          >
+            <canvas class="thumb" data-thumb="kule" aria-hidden="true"></canvas
+            ><span class="tile-text"
+              ><span class="tile-name">Küp kuleleri</span
+              ><span class="tile-detail">Denge ve yıkım</span></span
+            ><span class="tile-check"
+              ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-check" /></svg
+            ></span>
+          </button>
+          <button
+            class="tile"
+            type="button"
+            data-mesh="duvar"
+            aria-pressed="false"
+            aria-label="Blok duvar"
+          >
+            <canvas class="thumb" data-thumb="duvar" aria-hidden="true"></canvas
+            ><span class="tile-text"
+              ><span class="tile-name">Blok duvar</span
+              ><span class="tile-detail">Darbe ve kırılma</span></span
+            ><span class="tile-check"
+              ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-check" /></svg
+            ></span>
+          </button>
+          <button
+            class="tile"
+            type="button"
+            data-mesh="domino"
+            aria-pressed="false"
+            aria-label="Domino sırası"
+          >
+            <canvas
+              class="thumb"
+              data-thumb="domino"
+              aria-hidden="true"
+            ></canvas
+            ><span class="tile-text"
+              ><span class="tile-name">Domino sırası</span
+              ><span class="tile-detail">Zincirleme hareket</span></span
+            ><span class="tile-check"
+              ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-check" /></svg
+            ></span>
+          </button>
+          <button
+            class="tile"
+            type="button"
+            data-mesh="yigin"
+            aria-pressed="false"
+            aria-label="Küp yağmuru"
+          >
+            <canvas class="thumb" data-thumb="yigin" aria-hidden="true"></canvas
+            ><span class="tile-text"
+              ><span class="tile-name">Küp yağmuru</span
+              ><span class="tile-detail">Serbest düşüş</span></span
+            ><span class="tile-check"
+              ><svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <use href="#ic-check" /></svg
+            ></span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <dialog id="shortcutsDialog">
+      <div class="modal-head">
+        <h2>Klavye kısayolları</h2>
+        <button data-close class="plain-icon" aria-label="Kapat">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <use href="#ic-close" />
+          </svg>
+        </button>
+      </div>
+      <div class="shortcut-list">
+        <div><span>Cismi tut ve fırlat</span><kbd>Sürükle, bırak</kbd></div>
+        <div>
+          <span>Tutulan cismin derinliği</span><kbd>Fare tekerleği</kbd>
+        </div>
+        <div><span>Kamerayı döndür</span><kbd>Boş alanı sürükle</kbd></div>
+        <div><span>Küp ekle</span><kbd>A</kbd></div>
+        <div><span>Sahne odaktayken küp fırlat</span><kbd>Enter</kbd></div>
+        <div><span>Oynat / duraklat</span><kbd>Boşluk</kbd></div>
+        <div><span>Sahne odaktayken döndür</span><kbd>← ↑ ↓ →</kbd></div>
+        <div>
+          <span>Sahne seç</span><span><kbd>1</kbd> – <kbd>4</kbd></span>
+        </div>
+        <div>
+          <span>Yakınlaştır / uzaklaştır</span
+          ><span><kbd>+</kbd> <kbd>−</kbd></span>
+        </div>
+        <div><span>Sahneyi yeniden kur</span><kbd>R</kbd></div>
+        <div><span>Izgarayı göster / gizle</span><kbd>G</kbd></div>
+        <div><span>Tam ekran</span><kbd>F</kbd></div>
+        <div><span>Kısayolları göster</span><kbd>?</kbd></div>
+      </div>
+    </dialog>
+    <dialog id="exportDialog">
+      <div class="modal-head">
+        <h2>Sahneyi dışa aktar</h2>
+        <button data-close class="plain-icon" aria-label="Kapat">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <use href="#ic-close" />
+          </svg>
+        </button>
+      </div>
+      <div class="export-body">
+        <h3>Etkileşimli tekrar</h3>
+        <p>
+          Kaydı tek dosya olarak paylaş. Açan kişi çarpışmayı döndürüp ağır
+          çekimde izleyebilir.
+        </p>
+        <button class="primary" id="saveReplay">
+          Tekrarı HTML olarak kaydet
+        </button>
+        <div class="export-rule"></div>
+        <h3>Simülasyon karesi</h3>
+        <p>Sahnenin o anki görüntüsünü veya karakterlerini kaydet.</p>
+        <button class="primary" id="savePng">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <use href="#ic-image" /></svg
+          >PNG olarak kaydet</button
+        ><button class="secondary" id="saveTxt">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <use href="#ic-txt" /></svg
+          >ASCII metnini kaydet
+        </button>
+        <div class="export-rule"></div>
+        <h3>Sahne tarifi</h3>
+        <p id="promptText"></p>
+        <button class="secondary" id="copyPrompt">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <use href="#ic-copy" /></svg
+          ><span data-copy-label>Tarifi kopyala</span>
+        </button>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="vendor/cannon.js"></script>
+    <script src="src/thumbnails.js"></script>
+    <script src="src/renderer.js"></script>
+    <script src="src/world.js"></script>
+    <script src="src/replay.js"></script>
+    <script src="src/clip.js"></script>
+    <script src="src/studio.js"></script>
+  <script type="text/plain" id="glif-license">
+MIT License
+
+Copyright (c) 2026 LeatherFire and Glif Studio contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</script>
+  </body>
+</html>
